@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
 
+import { Button } from "@/components/ui/button";
+
 export default function Header() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +20,15 @@ export default function Header() {
           <Link href="/">MyProduct</Link>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <Link href="/login" className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-            {t('login')}
+          <Link href="/login" className="py-2 px-4 rounded-md">
+            <Button variant="gray">
+              {t('login')}
+            </Button>
           </Link>
-          <Link href="/register" className="py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600">
-            {t('register')}
+          <Link href="/register" className="py-2 px-4 rounded-md">
+            <Button variant="gray">
+              {t('register')}
+            </Button>
           </Link>
           <LanguageSwitcher />
           <ThemeSwitcher />
@@ -42,12 +48,16 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/login" className="block py-2 px-4 text-sm text-gray-800 dark:text-white bg-blue-500 text-white rounded-md hover:bg-blue-600 text-center">
+          <Link href="/login" className="py-2 px-4 rounded-md">
+            <Button variant="gray">
               {t('login')}
-            </Link>
-            <Link href="/register" className="block py-2 px-4 text-sm text-gray-800 dark:text-white bg-green-500 text-white rounded-md hover:bg-green-600 text-center">
+            </Button>
+          </Link>
+          <Link href="/register" className="py-2 px-4 rounded-md">
+            <Button variant="gray">
               {t('register')}
-            </Link>
+            </Button>
+          </Link>
           </div>
           <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-700 flex justify-around">
             <LanguageSwitcher />
